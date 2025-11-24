@@ -10,7 +10,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Blog.Controllers;
 
-//[Authorize(Roles = "admin")]
+[Authorize(Roles = "admin")]
 [ApiController]
 public class CategoryController : ControllerBase
 {

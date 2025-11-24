@@ -1,5 +1,4 @@
 ﻿using Blog.Data;
-using Blog.Extensions;
 using Blog.Models;
 using Blog.ViewModels;
 using Blog.ViewModels.Users;
@@ -120,7 +119,6 @@ public class UserController : ControllerBase
             user.Image = model.Image;
             user.Slug = model.Slug;
             user.PasswordHash = model.PasswordHash;
-           
             context.Users.Update(user);
             await context.SaveChangesAsync();
             
@@ -132,35 +130,4 @@ public class UserController : ControllerBase
         }
     }
     
-    // [HttpPost("v1/users")]
-    // public async Task<IActionResult> PostAsync(
-    //     [FromServices] ApplicationDbContext context,
-    //     [FromBody] EditorUserViewModel model)
-    // {
-    //     if (!ModelState.IsValid)
-    //         return BadRequest(new ResultViewModel<User>(ModelState.GetErrors()));
-    //
-    //     var user = new User
-    //     {
-    //         Id = 0,
-    //         Name = model.Name,
-    //         Email = model.Email,
-    //         Bio = model.Bio,
-    //         Image = model.Image,
-    //         Slug = model.Slug,
-    //         PasswordHash = model.PasswordHash
-    //     };
-    //     
-    //     try
-    //     {
-    //         await context.Users.AddAsync(user);
-    //         await context.SaveChangesAsync();
-    //         
-    //         return Created($"v1/users/{user.Id}", new ResultViewModel<User>(user));
-    //     }
-    //     catch
-    //     {
-    //         return BadRequest(new ResultViewModel<User>("Erro interno no servidor"));
-    //     }
-    // }
 }
