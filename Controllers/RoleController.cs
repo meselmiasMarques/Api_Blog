@@ -182,7 +182,7 @@ public class RoleController : ControllerBase
     )
     {
         var user = await context.Users
-            .Include(r => r.Roles)
+            .Include(r => r.Roles) 
             .FirstOrDefaultAsync(x => x.Id == userid);
         
         if (user == null)
